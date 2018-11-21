@@ -4,11 +4,23 @@
 #include <time.h>
 
 //hardcoded car values
-char arrival[] = "NNNSSNEW";
-char destination[] = "NNWSENNN";
-float times[] = {1.1,2.0,3.3,3.5,4.2,4.4,5.7,5.9};
+const char arrival[] = "NNNSSNEW";
+const char destination[] = "NNWSENNN";
+const float times[] = {1.1,2.0,3.3,3.5,4.2,4.4,5.7,5.9};
 
 clock_t timer;
+pthread_mutex_t head_of_line_n;
+pthread_mutex_t head_of_line_s;
+pthread_mutex_t head_of_line_w;
+pthread_mutex_t head_of_line_e;
+pthread_mutex_t mid_intersection_nw;
+pthread_mutex_t mid_intersection_se;
+pthread_mutex_t mid_intersection_ne;
+pthread_mutex_t mid_intersection_sw;
+pthread_mutex_t exit_intersection_n;
+pthread_mutex_t exit_intersection_s;
+pthread_mutex_t exit_intersection_w;
+pthread_mutex_t exit_intersection_e;
 
 int t_green = 18;
 int t_yellow = 2;
@@ -28,13 +40,13 @@ typedef struct _car {
 } car;
 
 void ArriveIntersection(car thisCar){
-
+	//Determines where car arrives, and waits if quadrant of intersection is locked
 }
 void CrossIntersection(car thisCar){
-
+	//Arrives to middle, waits until exit lock becomes free
 }
 void ExitIntersection(car thisCar){
-
+	//Arrives at exit and leaves, unlocks mid/exit locks
 }
 
 void *Car(void * vid) {
