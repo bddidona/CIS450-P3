@@ -1,10 +1,8 @@
 default: tc
 
-tc.o: tc.c
-	gcc -c tc.c -o tc.o
 
-tc: tc.o
-	gcc tc.o -o tc
+tc: tc.c
+	gcc -pthread -o tc tc.c
 
 clean:
 	-rm -f tc.o
