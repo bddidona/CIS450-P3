@@ -41,12 +41,32 @@ typedef struct _car {
 
 void ArriveIntersection(car thisCar){
 	//Determines where car arrives, and waits if quadrant of intersection is locked
+	/*
+		Wait here until head of line is unlocked (for arrival direction)
+		then lock head of line in the direction, and determine what the center quadrant will be
+		depending on center quadrant the car can now call cross intersection
+
+	*/
 }
 void CrossIntersection(car thisCar){
 	//Arrives to middle, waits until exit lock becomes free
+	/*
+		Car has arrived and has the lock for the head of line
+		Now waits for lock of center quadrant to be unlocked (determined by destination vs arrival)
+		lock quadrant of center which car will be in
+		arrival can now be unlocked!
+		Now depending on destination the car will call exit
+		status is "crossing"
+	*/
 }
 void ExitIntersection(car thisCar){
 	//Arrives at exit and leaves, unlocks mid/exit locks
+	/*
+		Here is where the car will pass through the destination and exit
+		Waits for lock of destination to be unlocked
+		lock exit, car will "exit" and then unlock both middle and exit
+		Car has now passed through
+	*/
 }
 
 void *Car(void * vid) {
