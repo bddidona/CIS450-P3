@@ -37,6 +37,7 @@ typedef struct _car {
 	char dir_target;
 	float time;
 	int id;
+	int status;
 } car;
 
 void ArriveIntersection(car thisCar){
@@ -65,7 +66,7 @@ void ExitIntersection(car thisCar){
 		Here is where the car will pass through the destination and exit
 		Waits for lock of destination to be unlocked
 		lock exit, car will "exit" and then unlock both middle and exit
-		Car has now passed through
+		Car has now passed through - status is now 0
 	*/
 }
 
@@ -76,6 +77,7 @@ void *Car(void * vid) {
 	thisCar.dir_target = destination[id];
 	thisCar.time = times[id];
 	thisCar.id = id;
+	thisCar.status = 1;
 	
 	ArriveIntersection(thisCar);
 	CrossIntersection(thisCar);
